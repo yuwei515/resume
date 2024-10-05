@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昱谓 - Java开发工程师</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="介绍">
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.9.0/viewer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/theme-chalk/index.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/yuwei.css">
+</head>
+
+<body>
+    <div id="yuwei" v-if="yuwei" v-cloak>
+        <!-- 首页 -->
+        <div class="yuwei yuwei1" >
+            <!-- 简单介绍 -->
+            <div class="yuweiContent yuwei1Content">
+                <div class="ContentBox">
+                    <div class="ContentTitle">
+                        <span class="yuwei1Typet1"></span>
+                    </div>
+                                        
+                    <div class="job_expectations"  v-html="yuwei.index.text"></div>
+
+
+                    <div class="ContentSubTitle1" @click="randomSubTitle"><span>"</span> {{yuwei.index.subTitle}}<span>"</span></div>
+
+
+                    <div class="yuwei1LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(yuwei.index.loadMore.class)">
+                            {{yuwei.index.loadMore.text}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 壁纸 -->
+            <div class="yuweiBg yuwei1Bg"></div>
+        </div>
+
+
+        <!-- 教育背景+技能 -->
+        <div class="yuwei yuwei2" >
+            <!-- 内容 -->
+            <div class="yuweiContent yuwei2Content">
+                <div>
+                    <p class="yuwei2ContentTitle">{{yuwei.about.title}}</p>
+                    <div class="yuwei2ContentMe">
+                        <div class="yuwei2ContentImg">
+                            <img :src="yuwei.about.laozi.img" :alt="yuwei.about.laozi.img">
+                        </div>
+                        <div class="yuwei2ContentText">
+                            <div v-html="yuwei.about.laozi.content" class="yuwei2ContentTextBox"></div>
+                            <ul>
+                                <li v-for="(item, index) in yuwei.about.ability"
+                                    :style="'border-top: 5px solid ' + item.color">
+                                    <i :class="'fa ' + item.icon "></i>
+                                    <span :style="'color:' + item.color">{{item.title}}</span>
+                                    <p>{{item.subTitle}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="yuwei2LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(yuwei.about.loadMore.class)">
+                            {{yuwei.about.loadMore.text}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目介绍 -->
+        <div class="yuwei yuwei3" >
+            <div class="yuweiContent yuwei3Content">
+                <div>
+                    <p class="yuwei2ContentTitle">{{yuwei.project.title}}</p>
+                    <div class="yuwei3ContentList">
+                        <div class="yuwei3ContentBox"  @click="showProject(index)" v-for="(item, index) in yuwei.project.list" :key="index">
+                            <img :src="item.img" :alt="item.img">
+                            <div class="yuwei3ContentBoxText">
+                                <div style="height: 100%;">
+                                    <p class="yuwei3ContentTitle">{{item.name}}</p>
+                                    <ul class="yuwei3ContentBoxTextList">
+                                        <li v-for="(nb, index) in item.nb" :key="index">
+                                            {{nb}}
+                                            <span v-if="index != item.nb.length - 1">+</span>
+                                        </li>
+                                    </ul>
+                                    <p class="yuwei3ContentText">{{item.text}}</p>
+                                    <div class="yuwei3ContentBtn" @click="showProject(index)">
+                                        {{yuwei.project.listLoadMore}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yuwei3LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(yuwei.project.loadMore.class)">
+                            {{yuwei.project.loadMore.text}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <el-dialog :title="yuwei.project.list[projectIndex].name" :visible.sync="projectDialog" :width="document.body.scrollWidth <= 1200? '95%' : '80%'"
+                append-to-body="true" modal-append-to-body="true" :top="document.body.scrollWidth <= 1200? '1vh' : '2vh'" >
+                <div v-html="yuwei.project.list[projectIndex].content"></div>
+            </el-dialog>
+        </div>
+
+        <!-- 联系我 -->
+        <div class="yuwei yuwei4" >
+            <!-- 壁纸 -->
+            <div class="yuweiBg yuwei4Bg"></div>
+            <!-- 内容 -->
+            <div class="yuweiContent yuwei4Content">
+                <div>
+                    <p class="yuwei2ContentTitle">{{yuwei.contact.title}}</p>
+                    <ul>
+                        <li v-for="(item, index) in yuwei.contact.list">
+                            <p class="yuwei4ItemTitle"><i :class="'fa ' + item.icon "></i></p>
+                            <p class="yuwei4ItemContext">{{item.context}}</p>
+                        </li>
+                    </ul>
+                     <div class="loadMore" @click="scrollGoToP">
+                        返回顶部
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js 引用 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.9.0/viewer.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/index.min.js"></script>
+    <script src="./js/yuwei.js" type="module"></script>
+</body>
+
+</html>

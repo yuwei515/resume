@@ -1,0 +1,830 @@
+/* 萌神手写体字体 */
+@font-face {
+    /* font-family: yuwei; */
+    src: url("../fonts/yuwei.ttf");
+}
+
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: yuwei;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    /* 标题文字大小 */
+    --titleSize: 2.8rem;
+    --contextSize: 1.5rem;
+}
+
+html,
+body {
+    background: #f1f2f6;
+}
+
+#yuwei {
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 滚动条 */
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+/* 统一过渡 */
+.job_expectations,
+.loadMore,
+.yuwei2ContentText li,
+.yuwei3ContentBoxText,
+.yuwei3ContentBox img,
+.yuwei3ContentBtn {
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+/* 未渲染则不显示 */
+[v-cloak] {
+    display: none;
+}
+
+/* 打字光标 */
+.typed-cursor {
+    opacity: 1;
+    animation: typedjsBlink 0.7s infinite;
+    -webkit-animation: typedjsBlink 0.7s infinite;
+    animation: typedjsBlink 0.7s infinite;
+}
+
+@keyframes typedjsBlink {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes typedjsBlink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.typed-fade-out {
+    opacity: 0;
+    transition: opacity .35S;
+    -webkit-animation: 0;
+    animation: 0;
+    -webkit-transition: opacity .35S;
+    -moz-transition: opacity .35S;
+    -ms-transition: opacity .35S;
+    -o-transition: opacity .35S;
+}
+
+/* 主框架 */
+.yuwei {
+    position: relative;
+}
+
+/* 首页 */
+.yuwei1 {
+    /* min-height: 919px; */
+    min-height: 800px;
+    overflow: hidden;
+}
+
+/* 首页内容 */
+.yuweiContent {
+    position: relative;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.yuwei1Content {
+    position: absolute;
+    box-shadow: 10px 0 30px black;
+    z-index: 2;
+}
+
+.ContentTitle {
+    font-size: var(--titleSize);
+    margin-bottom: 20px;
+}
+
+.ContentTitle1 {
+    width: 40%;
+    font-size: var(--titleSize);
+    margin-bottom: 6px;
+}
+
+.ContentSubTitle {
+    font-size: var(--contextSize);
+    margin-bottom: 20px;
+}
+
+.ContentContact {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.ContentContact li {
+    margin-right: 20px;
+    font-size: var(--contextSize);
+}
+
+.ContentContact i {
+    color: black;
+}
+
+.el-tooltip__popper {
+    font-size: 1rem;
+}
+
+.loadMore {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 25px 12px;
+    border: 1px solid black;
+    font-size: 1.0rem;
+    border-radius: 8px;
+}
+
+.loadMore:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 black;
+}
+
+/* 首页背景 */
+.yuweiBg {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+
+.yuwei1Bg {
+    right: 0;
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.yuwei2Bg {
+    left: 0;
+    background: url("../images/bg2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 内容 */
+.yuwei2 {
+    /* min-height: 919px; */
+    min-height: 800px;
+}
+
+.yuwei2Content {
+    width: 100%;
+}
+
+.yuwei2Content>div,
+.yuwei3Content>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.yuwei2ContentTitle {
+    width: 100%;
+    font-size: var(--titleSize);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.yuwei2ContentMe {
+    display: flex;
+    justify-content: center;
+    padding: 0 10%;
+    margin-bottom: 30px;
+}
+
+.yuwei2ContentImg {
+    width: 200px;
+    height: 300px;
+    min-width: 200px;
+    min-height: 300px;
+    overflow: hidden;
+    color: black;
+    border: 10px solid white;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+    margin-right: 5%;
+    transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+}
+
+.yuwei2ContentImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.yuwei2ContentText {
+    font-size: var(--contextSize);
+}
+
+.yuwei2ContentTextBox {
+    line-height: 2rem;
+}
+
+.yuwei2ContentTextBox b {
+    padding: 0 5px;
+}
+
+.yuwei2ContentTextBox span {
+    padding: 0 1rem;
+}
+
+.yuwei2ContentTextBox span::after {
+    content: '>';
+}
+
+.yuwei2ContentText ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.yuwei2ContentText li {
+    width: 100%;
+    height: 150px;
+    margin: 0 15px;
+    background: white;
+    position: relative;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+}
+
+.yuwei2ContentText li:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 23px 27px -5px, rgba(0, 0, 0, 0.3) 0px 18px 16px -8px;
+}
+
+.yuwei2ContentText li i {
+    position: absolute;
+    font-size: 5rem;
+    color: rgba(128, 128, 128, .15);
+    bottom: 10px;
+    right: 10px;
+}
+
+.yuwei2ContentText li span {
+    font-size: 2rem;
+}
+
+.yuwei2ContentText li p {
+    font-size: var(--contextSize);
+}
+
+.yuwei2ContentText li p:nth-child(4) {
+    font-size: 1.1rem;
+}
+
+/* 项目介绍 */
+.yuwei3 {
+    height: auto;
+    /* min-height: 919px; */
+    min-height: 800px;
+    padding-bottom: 200px;
+    background: white;
+    border-radius: 200px 200px 0 0;
+    -webkit-border-radius: 200px 200px 0 0;
+    -moz-border-radius: 200px 200px 0 0;
+    -ms-border-radius: 200px 200px 0 0;
+    -o-border-radius: 200px 200px 0 0;
+}
+
+.yuwei3Content {
+    width: 100%;
+    height: auto;
+}
+
+.yuwei3ContentList {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.yuwei3ContentBox,
+.yuwei3ContentBoxTc {
+    width: 300px;
+    height: 400px;
+    background: white;
+    margin-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.yuwei3ContentBox {
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+    border:1px solid rgba(133, 128, 128, 0.4);
+}
+
+.yuwei3ContentBoxTc {
+    height: 0 !important;
+}
+
+.yuwei3ContentBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.yuwei3ContentBox:hover img {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.yuwei3ContentBoxText {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.yuwei3ContentBox:hover .yuwei3ContentBoxText {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.yuwei3ContentTitle {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 20%;
+    font-size: 1.8rem;
+}
+
+
+
+.yuwei3ContentText {
+    /* 超过五行不显示并且显示省略号 */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* 设置最大显示行数为 5 行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 35%; /* 使用百分比高度 */
+    font-size: var(--contextSize);
+    /* background-color: #333; */
+}
+
+
+
+.yuwei3ContentBoxText ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 3px 0 8px; */
+}
+
+.yuwei3ContentBoxText li {
+    margin-right: 8px;
+}
+
+.yuwei3ContentBtn {
+    display: inline-block;
+    margin: 10px 0 0 60%;
+    height: 7%;
+    padding: 3px 20px 6px;
+    border: 1px solid black;
+    font-size: 1.1rem;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.yuwei3ContentBtn:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 black;
+}
+
+.yuwei3LoadMore {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 联系我 */
+.yuwei4 {
+    /* min-height: 919px; */
+    min-height: 800px;
+}
+
+.yuwei4Content {
+    left: 50%;
+    flex-wrap: wrap;
+}
+
+.yuwei4Bg {
+    left: 0;
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.yuwei4ItemTitle {
+    /* font-size: 2rem; */
+    font-size: 1.8rem;
+}
+
+.yuwei4ItemContext {
+    font-size: 1.2rem;
+}
+
+.yuwei4Content li {
+    margin: 20px 0;
+}
+
+/* 项目弹出框 */
+.el-dialog {
+    /* width: 80%; */
+}
+
+.el-dialog__header {
+    padding: 30px 30px 20px;
+}
+
+.el-dialog__title {
+    font-size: 2rem;
+}
+
+.el-dialog__body {
+    font-size: 1.2rem;
+    padding-top: 0;
+}
+
+.el-dialog__body p {
+    padding: 0 10px;
+}
+
+.el-dialog__body h2 {
+    padding-left: 15px;
+    border-left: 4px solid #00a2ff;
+    line-height: 50px;
+    background: #f2f7fb;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.el-dialog__body .yuwei3ContentBtn {
+    margin: 0;
+    padding: 4px 12px 8px;
+    /* margin-bottom: 20px; */
+}
+
+.el-dialog__body ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.el-dialog__body ul img {
+    width: 300px;
+    margin: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+
+
+
+
+
+.ContentSubTitle1{
+    display: inline-block;
+    font-size: 16px;
+    color: rgb(71, 70, 70);
+    border-bottom: #646566 1px solid;
+    border-width:30% ;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.ContentSubTitle1:hover{
+    color: rgb(15, 15, 15);
+}
+
+.ContentSubTitle1 span{
+    font-size: 20px;
+    color: #646566;
+    font-weight: 700;
+}
+
+.job_expectations{
+    margin: 20px 0;
+    /* font-size: 20px; */
+    font-size: var(--contextSize);
+}
+
+.yuwei1LoadMore{
+    margin: 20px 0;
+}
+
+.ContentBox hr{
+        width: 88%;
+}
+
+.yuwei2ContentTextBox div {
+    margin: 15px 0;
+}
+
+.yuwei2ContentImgModal{
+    display: none;
+}
+
+
+
+
+
+
+/* 自适应 */
+@media(max-width:1400px) {
+    .yuwei2 {
+        height: 1200px;
+    }
+
+    .yuwei2ContentText ul {
+        flex-wrap: wrap;
+    }
+
+    .yuwei2ContentText li {
+        width: 46%;
+        margin: 0 0 30px;
+    }
+
+    .yuwei2ContentMe {
+        padding: 0 5%;
+    }
+}
+
+@media(max-width:1070px) {
+    .yuwei3 {
+        border-radius: 150px 150px 0 0;
+        -webkit-border-radius: 150px 150px 0 0;
+        -moz-border-radius: 150px 150px 0 0;
+        -ms-border-radius: 150px 150px 0 0;
+        -o-border-radius: 150px 150px 0 0;
+    }
+
+    .yuwei3ContentList {
+        width: 660px;
+        min-width: 660px;
+    }
+}
+
+@media(max-width: 930px) {
+    * {
+        --titleSize: 2.5rem;
+        --contextSize: 1.2rem;
+    }
+
+    .yuwei1Content {
+        padding: 40px;
+    }
+
+    .yuwei2ContentMe {
+        padding: 0;
+    }
+
+    .yuwei2 {
+        height: 1500px;
+        position: relative;
+    }
+
+    .yuwei2ContentMe {
+        flex-wrap: wrap;
+    }
+
+    .yuwei2ContentImg {
+        margin-bottom: 30px;
+    }
+
+    /* ====================================================== */
+.yuwei3ContentBoxTextList{
+    width: 100%;
+    height: 28%;
+    /* line-height: 16px; */
+}
+
+
+    .yuwei2ContentImg{
+        /* display: block; */
+        position: absolute;
+        height: 30px;
+        top: -8px;
+        left: 38%;
+        /* background-color:rgba(221, 218, 218, 0.1); */
+         transform: skewY(185deg);
+    }
+
+    .yuwei2ContentText{
+        z-index: 1;
+    }
+  
+
+    .yuwei2ContentImg img{
+        width: 100%;
+        height: 100%;
+            /* 图片透明度20% */
+            opacity: 0.09;
+            /* 倾斜角度 */
+
+        }
+
+        .yuweiContent{
+            padding: 20px 40px;
+        }
+
+
+.yuwei2ContentTextBox div {
+      margin:4px 0;
+}
+
+
+
+    /* ====================================================== */
+
+}
+
+@media(max-width: 778px) {
+    .yuwei3 {
+        border-radius: 100px 100px 0 0;
+        -webkit-border-radius: 100px 100px 0 0;
+        -moz-border-radius: 100px 100px 0 0;
+        -ms-border-radius: 100px 100px 0 0;
+        -o-border-radius: 100px 100px 0 0;
+}
+
+    .yuwei2ContentImgPc{
+        display: none;
+    }
+
+    .yuwei3ContentList {
+        width: 300px;
+        min-width: 300px;
+    }
+
+    .yuwei3ContentBoxText {
+        /* transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0); */
+
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+}
+
+
+
+}
+
+@media(max-width: 560px) {
+    .yuwei1 {
+        height: 700px;
+    }
+
+    .yuwei1Bg {
+        width: 100%;
+        height: 15%;
+        top: 0;
+    }
+
+    .yuwei1Content {
+        bottom: 0;
+        width: 100%;
+        /* height: 85%; */
+    }
+            .ContentBox{
+            margin-bottom: 50%;
+        }
+
+    .loadMore {
+        padding: 5px 30px 10px;
+    }
+
+    .yuwei2 {
+        height: 1800px;
+    }
+
+    .yuwei2Content {
+        padding: 20px 30px;
+        display: block;
+    }
+
+
+        
+
+    .yuwei2ContentText li {
+        width: 100%;
+    }
+
+    .yuwei4Content {
+        width: 65%;
+        left: 35%;
+        padding: 20px;
+        /* display: flex; */
+    }
+
+    .yuwei4Bg {
+        width: 35%;
+    }
+
+    .el-dialog {
+        width: 90%;
+    }
+
+    .el-dialog__body ul {
+        text-align: center;
+    }
+
+    .el-dialog__body ul img {
+        width: 80%;
+    }
+
+    .ContentTitle1{
+    width: 90%;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .ContentSubTitle1{
+font-size: 12px;
+    }
+    .ContentBox hr{
+        width: 100%;
+    }
+}
+
+
+
